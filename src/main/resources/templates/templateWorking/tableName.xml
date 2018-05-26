@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<!--      table information
+		tableName :${rootName}.${tableName} 
+		 BPO_OBJ_ID  NUMBER   NOT NULL   primarykey, 
+		<#list model_column as model>
+			${model.fieldsName}  ${model.fieldsType}
+		</#list>
+	-->
+<sqlMap namespace="${tableName}">
+	<insert id="insert">
+		INSERT INTO ${rootName}.${tableName} (  <#list model_column as model>
+										${model.fieldsName},  <!-- ${model.fieldsRemark} -->
+									</#list>)		 
+		VALUES (<#list model_column as model>
+					#${model.fieldsName}:${model.fieldsType}#,  <!-- ${model.fieldsRemark} -->
+				</#list>)
+	</insert>
+	
+	<delete id="delete">
+		DELETE FROM ${rootName}.${tableName} WHERE 
+			BPO_OBJ_ID = #bpoObjId#
+	</delete>
+
+	<update id="update">
+		UPDATE ${rootName}.${tableName} 
+		SET 
+				<#list model_column as model>
+					${model.fieldsName} = ${model.className},  <!-- ${model.fieldsRemark} -->
+				</#list>)	
+			WHERE 	
+			BPO_OBJ_ID = #bpoObjId#
+	</update>
+  
+</sqlMap>
