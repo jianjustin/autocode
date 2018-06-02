@@ -2,32 +2,32 @@ package org.jerry.light4j.common.utils;
 
 public class StringUtils {
 
-	/** 8 Î» UCS ×ª»»¸ñÊ½ */
+	/** 8 Î» UCS ×ªï¿½ï¿½ï¿½ï¿½Ê½ */
 	public static final String UTF_8 = "UTF-8";
 	
-	/** ISO À­¶¡×ÖÄ¸±í No.1£¬Ò²½Ð×÷ ISO-LATIN-1 */
+	/** ISO ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¸ï¿½ï¿½ No.1ï¿½ï¿½Ò²ï¿½ï¿½ï¿½ï¿½ ISO-LATIN-1 */
 	public static final String ISO_8859_1 = "ISO-8859-1";
 
-	/** 7Î»ASCII×Ö·û£¬Ò²½Ð×÷ISO646-US¡¢Unicode×Ö·û¼¯µÄ»ù±¾À­¶¡¿é */
+	/** 7Î»ASCIIï¿½Ö·ï¿½ï¿½ï¿½Ò²ï¿½ï¿½ï¿½ï¿½ISO646-USï¿½ï¿½Unicodeï¿½Ö·ï¿½ï¿½ï¿½ï¿½Ä»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
 	public static final String US_ASCII = "US-ASCII";
 
-	/** 16 Î» UCS ×ª»»¸ñÊ½£¬Big Endian£¨×îµÍµØÖ·´æ·Å¸ßÎ»×Ö½Ú£©×Ö½ÚË³Ðò */
+	/** 16 Î» UCS ×ªï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½Big Endianï¿½ï¿½ï¿½ï¿½Íµï¿½Ö·ï¿½ï¿½Å¸ï¿½Î»ï¿½Ö½Ú£ï¿½ï¿½Ö½ï¿½Ë³ï¿½ï¿½ */
 	public static final String UTF_16BE = "UTF-16BE";
 
-	/** 16 Î» UCS ×ª»»¸ñÊ½£¬Little-endian£¨×î¸ßµØÖ·´æ·ÅµÍÎ»×Ö½Ú£©×Ö½ÚË³Ðò */
+	/** 16 Î» UCS ×ªï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½Little-endianï¿½ï¿½ï¿½ï¿½ßµï¿½Ö·ï¿½ï¿½Åµï¿½Î»ï¿½Ö½Ú£ï¿½ï¿½Ö½ï¿½Ë³ï¿½ï¿½ */
 	private static final String UTF_16LE = "UTF-16LE";
 
-	/** 16 Î» UCS ×ª»»¸ñÊ½£¬×Ö½ÚË³ÐòÓÉ¿ÉÑ¡µÄ×Ö½ÚË³Ðò±ê¼ÇÀ´±êÊ¶ */
+	/** 16 Î» UCS ×ªï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½Ö½ï¿½Ë³ï¿½ï¿½ï¿½É¿ï¿½Ñ¡ï¿½ï¿½ï¿½Ö½ï¿½Ë³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¶ */
 	public static final String UTF_16 = "UTF-16";
 
-	/** ÖÐÎÄ³¬´ó×Ö·û¼¯ */
+	/** ï¿½ï¿½ï¿½Ä³ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ */
 	public static final String GBK = "GBK";
 
-	/** ÖÐÎÄ³¬´ó×Ö·û¼¯ */
+	/** ï¿½ï¿½ï¿½Ä³ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ */
 	public static final String GB2312 = "GB2312";
 
 	/**
-	 * ÅÐ¶Ï¶ÔÏóÊÇ·ñÎª¿Õ
+	 * ï¿½Ð¶Ï¶ï¿½ï¿½ï¿½ï¿½Ç·ï¿½Îªï¿½ï¿½
 	 * @param obj
 	 * @return
 	 */
@@ -36,7 +36,7 @@ public class StringUtils {
 	}
 	
 	/**
-	 * ÅÐ¶Ï¶ÔÏóÊÇ·ñ²»Îª¿Õ
+	 * ï¿½Ð¶Ï¶ï¿½ï¿½ï¿½ï¿½Ç·ï¿½Îªï¿½ï¿½
 	 * @param obj
 	 * @return
 	 */
@@ -45,11 +45,11 @@ public class StringUtils {
 	}
 	
 	/**
-     * ÅÐ¶Ï×Ö·û´®ÊÇ·ñÄÚÈÝÏàÍ¬£¬²»Çø·Ö´óÐ¡Ð´
-     * @param s1  µÚ1¸öÊäÈë×Ö·û´®
-     * @param s2  µÚ2¸öÊäÈë×Ö·û´®
-     * @return ²¼¶ûÖµ=true£ºÁ½¸ö×Ö·û´®ÏàµÈ
-     *                =false:Á½¸ö×Ö·û´®²»ÏàµÈ
+     * ï¿½Ð¶ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½Ð¡Ð´
+     * @param s1  ï¿½ï¿½1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½
+     * @param s2  ï¿½ï¿½2ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½
+     * @return ï¿½ï¿½ï¿½ï¿½Öµ=trueï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+     *                =false:ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
      */
     public static boolean equalsIgnoreCase(String s1, String s2) {
         if (null == s1) {
@@ -59,12 +59,13 @@ public class StringUtils {
     }
     
     /**
-     * °Ñ×Ö·û´®µÄµÚÒ»¸ö×Ö·û±äÎª´óÐ´
-     * @param s ÊäÈë×Ö·û´®
-     * @return ·µ»ØµÚÒ»¸ö×Ö·ûÊÇ´óÐ´µÄ×Ö·û´®
+     * ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½Äµï¿½Ò»ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½Îªï¿½ï¿½Ð´
+     * @param s ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½
+     * @return ï¿½ï¿½ï¿½Øµï¿½Ò»ï¿½ï¿½ï¿½Ö·ï¿½ï¿½Ç´ï¿½Ð´ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½
      */
     public static String upperFirst(String s) {
         String str = null;
+        s = s.toLowerCase();
         if (null != s) {
             if (s.length() == 1) {
                 str = s.toUpperCase();
@@ -76,9 +77,9 @@ public class StringUtils {
     }
     
     /**
-     * °Ñ×Ö·û´®µÄµÚÒ»¸ö×Ö·û±äÎªÐ¡Ð´
-     * @param s ÊäÈëµÄ×Ö·û´®
-     * @return ·µ»ØµÄµÚÒ»¸ö×Ö·ûÊÇÐ¡Ð´µÄ×Ö·û´®
+     * ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½Äµï¿½Ò»ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ÎªÐ¡Ð´
+     * @param s ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½
+     * @return ï¿½ï¿½ï¿½ØµÄµï¿½Ò»ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½Ð¡Ð´ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½
      */
     public static String lowerFirst(String s) {
         String str = null;
@@ -93,9 +94,9 @@ public class StringUtils {
     }
     
   /**
-	* Ö¸¶¨×Ö·û´®³öÏÖµÄ´ÎÊý.<br>
-    *@param srcStr£º²éÕÒµÄ×Ö·û´®
-    *@param countStr£ºÖ¸¶¨Òª²éÕÒµÄ×Ö·û´®
+	* Ö¸ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÖµÄ´ï¿½ï¿½ï¿½.<br>
+    *@param srcStrï¿½ï¿½ï¿½ï¿½ï¿½Òµï¿½ï¿½Ö·ï¿½ï¿½ï¿½
+    *@param countStrï¿½ï¿½Ö¸ï¿½ï¿½Òªï¿½ï¿½ï¿½Òµï¿½ï¿½Ö·ï¿½ï¿½ï¿½
     *@return
     */
     public static int countStringNumber(String srcStr,String countStr){
@@ -114,7 +115,7 @@ public class StringUtils {
     } 
 	
     /**
-	 * ÅÐ¶Ï×Ö·û´®µÄ±àÂë
+	 * ï¿½Ð¶ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½Ä±ï¿½ï¿½ï¿½
 	 * @param str
 	 * @return
 	 */
@@ -131,7 +132,7 @@ public class StringUtils {
 	}  
 	
 	/**
-	 * ËùÓÐ²ÎÊýÎª¿ÕµÄÊ±ºò·µ»Øtrue
+	 * ï¿½ï¿½ï¿½Ð²ï¿½ï¿½ï¿½Îªï¿½Õµï¿½Ê±ï¿½ò·µ»ï¿½true
 	 * @param args
 	 * @return true false
 	 */
@@ -152,11 +153,11 @@ public class StringUtils {
 	}
 	
 	/**
-     * ÔÚ×Ö·û´®ÖÐ£¬ÓÃÐÂµÄ×Ö·û´®Ìæ»»Ö¸¶¨µÄ×Ö·û´®
-     * @param src ÐèÒªÌæ»»µÄ×Ö·û¶ÔÏó
-     * @param strOld ±»Ìæ»»µÄ×Ö·û´®
-     * @param strNew  ÓÃÓÚÌæ»»µÄ×Ö·û´®
-     * @return ÒÑ¾­±»Ìæ»»µÄ×Ö·û´®
+     * ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½Ð£ï¿½ï¿½ï¿½ï¿½Âµï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½æ»»Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½
+     * @param src ï¿½ï¿½Òªï¿½æ»»ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½
+     * @param strOld ï¿½ï¿½ï¿½æ»»ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½
+     * @param strNew  ï¿½ï¿½ï¿½ï¿½ï¿½æ»»ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½
+     * @return ï¿½Ñ¾ï¿½ï¿½ï¿½ï¿½æ»»ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½
      */
     public static String replace(String src, String strOld, String strNew) {
         if (isBlankOne(src,strOld))return src;
@@ -165,7 +166,7 @@ public class StringUtils {
     }
 	
 	/**
-	 * »ñÈ¡Ò»¸ö×Ö·ûÔÚÒ»¸ö×Ö·û´®Àï³öÏÖµÄ´ÎÊý
+	 * ï¿½ï¿½È¡Ò»ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÖµÄ´ï¿½ï¿½ï¿½
 	 * @param tagetStr
 	 * @param str
 	 * @return 
@@ -179,7 +180,7 @@ public class StringUtils {
 	}
 	
 	/**
-	 * Ö»ÒªÓÐÒ»¸ö²ÎÊýÎª¿Õ¾Í·µ»Øtrue
+	 * Ö»Òªï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½Õ¾Í·ï¿½ï¿½ï¿½true
 	 * @param args
 	 * @return true false
 	 */
@@ -201,7 +202,7 @@ public class StringUtils {
 	
 	
 	/**
-	 * ÅÐ¶Ï×Ö·û´®ÊÇ·ñÎªÖ¸¶¨¸ñÊ½
+	 * ï¿½Ð¶ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ÎªÖ¸ï¿½ï¿½ï¿½ï¿½Ê½
 	 * @param str
 	 * @param encode
 	 * @return
@@ -218,7 +219,7 @@ public class StringUtils {
 	}
     
 	/**
-	 * ½«±í×Ö¶ÎÃû³Æ×ª»»ÎªÊôÐÔÃû³Æ(ÓÃÓÚ´úÂëÉú³ÉÆ÷)
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½Ö¶ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½Ú´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
 	 * @param regex
 	 * @param oldString
 	 * @return
