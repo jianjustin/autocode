@@ -2,26 +2,230 @@ package org.jerry.light4j.common.utils;
 
 public class StringUtils {
 
+	/** 8 Î» UCS ×ª»»¸ñÊ½ */
+	public static final String UTF_8 = "UTF-8";
+	
+	/** ISO À­¶¡×ÖÄ¸±í No.1£¬Ò²½Ğ×÷ ISO-LATIN-1 */
+	public static final String ISO_8859_1 = "ISO-8859-1";
+
+	/** 7Î»ASCII×Ö·û£¬Ò²½Ğ×÷ISO646-US¡¢Unicode×Ö·û¼¯µÄ»ù±¾À­¶¡¿é */
+	public static final String US_ASCII = "US-ASCII";
+
+	/** 16 Î» UCS ×ª»»¸ñÊ½£¬Big Endian£¨×îµÍµØÖ·´æ·Å¸ßÎ»×Ö½Ú£©×Ö½ÚË³Ğò */
+	public static final String UTF_16BE = "UTF-16BE";
+
+	/** 16 Î» UCS ×ª»»¸ñÊ½£¬Little-endian£¨×î¸ßµØÖ·´æ·ÅµÍÎ»×Ö½Ú£©×Ö½ÚË³Ğò */
+	private static final String UTF_16LE = "UTF-16LE";
+
+	/** 16 Î» UCS ×ª»»¸ñÊ½£¬×Ö½ÚË³ĞòÓÉ¿ÉÑ¡µÄ×Ö½ÚË³Ğò±ê¼ÇÀ´±êÊ¶ */
+	public static final String UTF_16 = "UTF-16";
+
+	/** ÖĞÎÄ³¬´ó×Ö·û¼¯ */
+	public static final String GBK = "GBK";
+
+	/** ÖĞÎÄ³¬´ó×Ö·û¼¯ */
+	public static final String GB2312 = "GB2312";
+
 	/**
-	 * åˆ¤æ–­å¯¹è±¡æ˜¯å¦ä¸ºç©º
+	 * ÅĞ¶Ï¶ÔÏóÊÇ·ñÎª¿Õ
 	 * @param obj
 	 * @return
 	 */
-	public static Boolean isBlank(Object obj){
-		if(obj == null)return true;
-		if(obj == "")return true;
-		return false;
+	public static boolean isBlank(Object obj){
+		return (null == obj || obj.toString().length() <= 0 || obj.toString().trim().equals(""));
 	}
 	
 	/**
-	 * å°†è¡¨å­—æ®µåç§°è½¬æ¢ä¸ºå±æ€§åç§°
+	 * ÅĞ¶Ï¶ÔÏóÊÇ·ñ²»Îª¿Õ
+	 * @param obj
+	 * @return
+	 */
+	public static boolean isNotBlank(Object obj){
+		return !isBlank(obj);
+	}
+	
+	/**
+     * ÅĞ¶Ï×Ö·û´®ÊÇ·ñÄÚÈİÏàÍ¬£¬²»Çø·Ö´óĞ¡Ğ´
+     * @param s1  µÚ1¸öÊäÈë×Ö·û´®
+     * @param s2  µÚ2¸öÊäÈë×Ö·û´®
+     * @return ²¼¶ûÖµ=true£ºÁ½¸ö×Ö·û´®ÏàµÈ
+     *                =false:Á½¸ö×Ö·û´®²»ÏàµÈ
+     */
+    public static boolean equalsIgnoreCase(String s1, String s2) {
+        if (null == s1) {
+            return false;
+        }
+        return s1.equalsIgnoreCase(s2);
+    }
+    
+    /**
+     * °Ñ×Ö·û´®µÄµÚÒ»¸ö×Ö·û±äÎª´óĞ´
+     * @param s ÊäÈë×Ö·û´®
+     * @return ·µ»ØµÚÒ»¸ö×Ö·ûÊÇ´óĞ´µÄ×Ö·û´®
+     */
+    public static String upperFirst(String s) {
+        String str = null;
+        if (null != s) {
+            if (s.length() == 1) {
+                str = s.toUpperCase();
+            } else {
+                str = s.substring(0, 1).toUpperCase() + s.substring(1);
+            }
+        }
+        return str;
+    }
+    
+    /**
+     * °Ñ×Ö·û´®µÄµÚÒ»¸ö×Ö·û±äÎªĞ¡Ğ´
+     * @param s ÊäÈëµÄ×Ö·û´®
+     * @return ·µ»ØµÄµÚÒ»¸ö×Ö·ûÊÇĞ¡Ğ´µÄ×Ö·û´®
+     */
+    public static String lowerFirst(String s) {
+        String str = null;
+        if (null != s) {
+            if (s.length() == 1) {
+                str = s.toLowerCase();
+            } else {
+                str = s.substring(0, 1).toLowerCase() + s.substring(1);
+            }
+        }
+        return str;
+    }
+    
+  /**
+	* Ö¸¶¨×Ö·û´®³öÏÖµÄ´ÎÊı.<br>
+    *@param srcStr£º²éÕÒµÄ×Ö·û´®
+    *@param countStr£ºÖ¸¶¨Òª²éÕÒµÄ×Ö·û´®
+    *@return
+    */
+    public static int countStringNumber(String srcStr,String countStr){
+        int indexCount = 0;
+        int index = 0;
+        int count=0;
+        for(;;) {
+            index = srcStr.indexOf(countStr, indexCount);
+            if(index == -1){
+                break;
+            }
+            count++;
+            indexCount = (index += countStr.length());
+        }
+        return count;
+    } 
+	
+    /**
+	 * ÅĞ¶Ï×Ö·û´®µÄ±àÂë
+	 * @param str
+	 * @return
+	 */
+	public static String getEncoding(String str) {
+		String[] encodeStr={UTF_8,ISO_8859_1,GBK,GB2312,US_ASCII,UTF_16BE,UTF_16LE,UTF_16};
+		String encode="";
+		for (String string : encodeStr) {
+			encode=checkEncoding(str, string);
+			if(isNotBlank(encode)){
+				return encode;
+			}
+		}
+		return "";
+	}  
+	
+	/**
+	 * ËùÓĞ²ÎÊıÎª¿ÕµÄÊ±ºò·µ»Øtrue
+	 * @param args
+	 * @return true false
+	 */
+	public static Boolean isBlankAll(Object... args){
+		Boolean flag=true;
+		for (int i = 0; i < args.length; i++) {
+			if(args[i] instanceof String){
+				if(!isBlank((String) args[i])){
+					flag=false;
+				}
+			}else{
+				if(null!=args[i]){
+					flag=false;
+				}	
+			}
+		}
+		return flag;
+	}
+	
+	/**
+     * ÔÚ×Ö·û´®ÖĞ£¬ÓÃĞÂµÄ×Ö·û´®Ìæ»»Ö¸¶¨µÄ×Ö·û´®
+     * @param src ĞèÒªÌæ»»µÄ×Ö·û¶ÔÏó
+     * @param strOld ±»Ìæ»»µÄ×Ö·û´®
+     * @param strNew  ÓÃÓÚÌæ»»µÄ×Ö·û´®
+     * @return ÒÑ¾­±»Ìæ»»µÄ×Ö·û´®
+     */
+    public static String replace(String src, String strOld, String strNew) {
+        if (isBlankOne(src,strOld))return src;
+        if(null == strNew)strNew = "";
+        return src.replaceAll(strOld, strNew);
+    }
+	
+	/**
+	 * »ñÈ¡Ò»¸ö×Ö·ûÔÚÒ»¸ö×Ö·û´®Àï³öÏÖµÄ´ÎÊı
+	 * @param tagetStr
+	 * @param str
+	 * @return 
+	 */
+	public static int indexOfAll(String tagetStr,String str){
+		int i=0;
+		if(null!=tagetStr){
+			i=tagetStr.length()-tagetStr.replace(str, "").length();
+		}
+		return i;
+	}
+	
+	/**
+	 * Ö»ÒªÓĞÒ»¸ö²ÎÊıÎª¿Õ¾Í·µ»Øtrue
+	 * @param args
+	 * @return true false
+	 */
+	public static Boolean isBlankOne(Object... args){
+		Boolean flag=false;
+		for (int i = 0; i < args.length; i++) {
+			if(args[i] instanceof String){
+				if(isBlank((String) args[i])){
+					flag=true;
+				}
+			}else{
+				if(null==args[i]){
+					flag=true;
+				}
+			}
+		}
+		return flag;
+	}
+	
+	
+	/**
+	 * ÅĞ¶Ï×Ö·û´®ÊÇ·ñÎªÖ¸¶¨¸ñÊ½
+	 * @param str
+	 * @param encode
+	 * @return
+	 */
+	public static String checkEncoding(String str,String encode){
+		try {
+			if (str.equals(new String(str.getBytes(encode), encode))) {
+				String s = encode;
+				return s;
+			}
+		} catch (Exception exception) {
+		}
+		return "";
+	}
+    
+	/**
+	 * ½«±í×Ö¶ÎÃû³Æ×ª»»ÎªÊôĞÔÃû³Æ(ÓÃÓÚ´úÂëÉú³ÉÆ÷)
 	 * @param regex
 	 * @param oldString
 	 * @return
 	 */
 	public static String toModelName(String regex,String oldString){
 		if(isBlank(oldString))
-			return null;
+			return "";
 		String[] oldStringArr = oldString.split(regex);
 		String newString = "";
 		for (int i=0 ; i<oldStringArr.length ; i++) {
@@ -30,8 +234,12 @@ public class StringUtils {
 			if(i == 0)
 				newString = oldStringArr[i].toLowerCase();
 			else
-				newString +=  oldStringArr[i].toLowerCase().substring(0, 1).toUpperCase() + oldStringArr[i].toLowerCase().substring(1, oldStringArr[i].length());
+				newString += upperFirst(oldStringArr[i]);
 		}
 		return newString;
+	}
+	
+	public static void main(String[] args) {
+		System.out.println(toModelName("_", "basic_member_code"));
 	}
 }
