@@ -68,11 +68,11 @@ public class ${Prefix}${Suffix}Cotrollor{
 	}
 	
     @ApiOperation(value="数据查询", notes="查询${prefix}_${suffix}数据",response = ${Prefix}${Suffix}.class, tags = { "${prefix}.${suffix}",})
-    @RequestMapping(value="/queryByCode/{${prefix}${Suffix}Code}", method=RequestMethod.GET, produces = "application/json; charset=UTF-8", consumes = {"text/plain", "application/json"})
+    @RequestMapping(value="/queryByCode/{${prefix}${Suffix}Code}", method=RequestMethod.GET, produces = "application/json; charset=UTF-8", consumes = {"text/plain", "application/*"})
     public ResponseEntity<?> queryByCode(
 			@ApiParam(value = "${prefix}_${suffix}数据code", required = true) @PathVariable String ${prefix}${Suffix}Code) {
-		${prefix}${Suffix}Repository.findBy${Prefix}${Suffix}Code(${prefix}${Suffix}Code);
-		return new ResponseEntity<${Prefix}${Suffix}>(HttpStatus.OK);
+		${Prefix}${Suffix} ${prefix}${Suffix} = ${prefix}${Suffix}Repository.findBy${Prefix}${Suffix}Code(${prefix}${Suffix}Code);
+		return ResponseManager.handerResponse(${Prefix}${Suffix}.class,${prefix}${Suffix}, null, HttpStatus.OK, "成功获取数据", null, null);
 	}
 	
 	@ApiOperation(value="数据分页查询", notes="查询${prefix}_${suffix}数据",response = ResponseDomain.class, tags = { "${prefix}.${suffix}",})
