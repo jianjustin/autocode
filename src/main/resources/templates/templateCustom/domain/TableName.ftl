@@ -21,6 +21,7 @@ public class ${TableName}{
     /**
     *${model.columnRemark!}
     */
+    @Id
     @Column(name = "${model.columnName}",columnDefinition = "${model.columnType}")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
     private ${model.modelType!} ${model.modelName?uncap_first};

@@ -24,13 +24,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 
 
 
 @RestController
-@RequestMapping("/${prefix}/${suffix}")
+@Api(tags="${prefix}.${suffix}",value="${prefix}.${suffix}模块")
+@RequestMapping(value = "/${prefix}/${suffix}",produces = { "application/json; charset=UTF-8" },consumes = {"text/plain", "application/json"})
+
 public class ${Prefix}${Suffix}Cotrollor{
     @Autowired
 	private ${Prefix}${Suffix}Service ${prefix}${Suffix}Service;
@@ -39,16 +42,16 @@ public class ${Prefix}${Suffix}Cotrollor{
     @Autowired
 	private ${Prefix}${Suffix}Repository ${prefix}${Suffix}Repository;
     
-    @ApiOperation(value="数据插入", notes="创建${prefix}_${suffix}数据",response = ${Prefix}${Suffix}.class, tags = { "${prefix}.${suffix}",})
-    @RequestMapping(value="/save", method=RequestMethod.POST, produces = "application/json; charset=UTF-8", consumes = {"text/plain", "application/json"})
+    @ApiOperation(value="数据插入")
+    @RequestMapping(value="/save", method=RequestMethod.POST)
 	public ResponseEntity<?> save(
 			@ApiParam(value = "${prefix}_${suffix}数据", required = true) @RequestBody ${Prefix}${Suffix} ${prefix}${Suffix}) {
     	${prefix}${Suffix}Service.save(${prefix}${Suffix});
 		return new ResponseEntity<${Prefix}${Suffix}>(HttpStatus.OK);
 	}
     
-    @ApiOperation(value="数据删除", notes="删除${prefix}_${suffix}数据",response = ${Prefix}${Suffix}.class, tags = { "${prefix}.${suffix}",})
-    @RequestMapping(value="/delete/{${prefix}${Suffix}Code}", method=RequestMethod.DELETE, produces = "application/json; charset=UTF-8", consumes = {"text/plain", "application/json"})
+    @ApiOperation(value="数据删除")
+    @RequestMapping(value="/delete/{${prefix}${Suffix}Code}", method=RequestMethod.DELETE)
 	public ResponseEntity<?> delete(
 			@ApiParam(value = "${prefix}_${suffix}数据code", required = true) @PathVariable String ${prefix}${Suffix}Code) {
 		${Prefix}${Suffix} old${Prefix}${Suffix} = ${prefix}${Suffix}Repository.findBy${Prefix}${Suffix}Code(${prefix}${Suffix}Code);
@@ -56,24 +59,24 @@ public class ${Prefix}${Suffix}Cotrollor{
 		return new ResponseEntity<${Prefix}${Suffix}>(HttpStatus.OK);
 	}
     
-    @ApiOperation(value="数据更新", notes="更新${prefix}_${suffix}数据",response = ${Prefix}${Suffix}.class, tags = { "${prefix}.${suffix}",})
-    @RequestMapping(value="/update", method=RequestMethod.PUT, produces = "application/json; charset=UTF-8", consumes = {"text/plain", "application/json"})
+    @ApiOperation(value="数据更新")
+    @RequestMapping(value="/update", method=RequestMethod.PUT)
 	public ResponseEntity<?> update(
 			@ApiParam(value = "${prefix}_${suffix}数据", required = true) @RequestBody ${Prefix}${Suffix} ${prefix}${Suffix}) {
 		${prefix}${Suffix}Service.update(${prefix}${Suffix});
 		return new ResponseEntity<${Prefix}${Suffix}>(HttpStatus.OK);
 	}
 	
-    @ApiOperation(value="数据查询", notes="查询${prefix}_${suffix}数据",response = ${Prefix}${Suffix}.class, tags = { "${prefix}.${suffix}",})
-    @RequestMapping(value="/queryByCode/{${prefix}${Suffix}Code}", method=RequestMethod.GET, produces = "application/json; charset=UTF-8", consumes = {"text/plain", "application/*"})
+    @ApiOperation(value="数据查询")
+    @RequestMapping(value="/queryByCode/{${prefix}${Suffix}Code}", method=RequestMethod.GET)
     public ResponseEntity<?> queryByCode(
 			@ApiParam(value = "${prefix}_${suffix}数据code", required = true) @PathVariable String ${prefix}${Suffix}Code) {
 		${Prefix}${Suffix} ${prefix}${Suffix} = ${prefix}${Suffix}Repository.findBy${Prefix}${Suffix}Code(${prefix}${Suffix}Code);
 		return ResponseManager.handerResponse(${Prefix}${Suffix}.class,${prefix}${Suffix}, null, HttpStatus.OK, "成功获取数据", null, null);
 	}
 	
-	@ApiOperation(value="数据分页查询", notes="查询${prefix}_${suffix}数据",response = ResponseDomain.class, tags = { "${prefix}.${suffix}",})
-    @RequestMapping(value="/queryByPage", method=RequestMethod.POST, produces = "application/json; charset=UTF-8", consumes = {"text/plain", "application/json; charset=UTF-8"})
+	@ApiOperation(value="数据分页查询")
+    @RequestMapping(value="/queryByPage", method=RequestMethod.POST)
     public ResponseEntity<?> queryByPage(
 			@ApiParam(value = "${prefix}_${suffix}查询条件") @RequestBody ${Prefix}${Suffix}View ${prefix}${Suffix}View) {
     	/*1. 数据校验*/
@@ -91,8 +94,8 @@ public class ${Prefix}${Suffix}Cotrollor{
 		return ResponseManager.handerResponse(${Prefix}${Suffix}.class,null, list, HttpStatus.OK, "成功获取数据列表", null, pageTools);
 	}
     
-    @ApiOperation(value="数据查询所有", notes="查询${prefix}_${suffix}数据",response = ResponseDomain.class, tags = { "${prefix}.${suffix}",})
-    @RequestMapping(value="/queryAll", method=RequestMethod.POST, produces = "application/json; charset=UTF-8", consumes = {"text/plain", "application/json; charset=UTF-8"})
+    @ApiOperation(value="数据查询所有")
+    @RequestMapping(value="/queryAll", method=RequestMethod.POST)
     public ResponseEntity<?> queryAll(
 			@ApiParam(value = "${prefix}_${suffix}查询条件") @RequestBody ${Prefix}${Suffix}View ${prefix}${Suffix}View) {
     	/*1. 数据校验*/
