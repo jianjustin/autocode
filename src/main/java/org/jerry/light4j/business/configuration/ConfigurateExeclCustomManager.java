@@ -1,6 +1,5 @@
 package org.jerry.light4j.business.configuration;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -12,9 +11,7 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.jerry.light4j.business.domain.ColumnDomain;
-import org.jerry.light4j.business.domain.WorkingDomain;
 import org.jerry.light4j.business.generate.GenerateCustomManager;
-import org.jerry.light4j.business.generate.GenerateExeclManager;
 import org.jerry.light4j.business.generate.GenerateManagerApi;
 import org.jerry.light4j.common.utils.ClassUtils;
 import org.jerry.light4j.common.utils.ExeclUtils;
@@ -41,6 +38,7 @@ public class ConfigurateExeclCustomManager implements ConfigurateManagerApi {
 	/**
 	 * 获取表字段映射集合
 	 */
+	@SuppressWarnings("unchecked")
 	public List<ColumnDomain> getDataList() {
 		List<ColumnDomain> list = new ArrayList<ColumnDomain>();
 		Properties properties = PropertiesUtils.getProperties("templateConfig.properties");
@@ -81,6 +79,8 @@ public class ConfigurateExeclCustomManager implements ConfigurateManagerApi {
 				ClassUtils.setFieldValue(columnDomain, type, value);
 			}
 			/*设置默认值*/
+			if(columnDomain.getColumnType().split("VARCHAR2").length > 1)
+				columnDomain.setColumnType("VARCHAR2");
 			columnDomain.setModelName(StringUtils.toModelName("_", columnDomain.getColumnName()));
 			columnDomain.setModelType(columnsTypeProperties.getProperty(columnDomain.getColumnType()));
 			columnDomainList.add(columnDomain);

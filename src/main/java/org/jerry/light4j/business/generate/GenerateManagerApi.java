@@ -3,7 +3,7 @@ package org.jerry.light4j.business.generate;
 import java.util.Map;
 
 /**
- * 代码生成器管理者
+ * 代码生成器开放API
  * @author chenjianrui
  *
  */

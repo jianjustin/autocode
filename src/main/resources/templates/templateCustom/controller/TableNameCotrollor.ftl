@@ -1,8 +1,7 @@
 package ${package_name}.controller;
 
 import java.io.Serializable;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
 
 import ${package_name}.domain.${Prefix}${Suffix};
 import ${package_name}.domain.${Prefix}${Suffix}View;
@@ -14,7 +13,7 @@ import org.jerry.light4j.member.common.page.PageTools;
 import org.jerry.light4j.member.common.page.PageUtils;
 import org.jerry.light4j.member.common.response.ResponseDomain;
 import org.jerry.light4j.member.common.response.ResponseManager;
-import org.jerry.light4j.member.common.sql.SqlUtils;
+import org.jerry.light4j.member.common.utils.SqlUtils;
 import org.jerry.light4j.member.common.utils.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -39,8 +38,6 @@ public class ${Prefix}${Suffix}Cotrollor{
     private BaseQueryRepositoryImpl<${Prefix}${Suffix}, Serializable> baseQueryRepositoryImpl;
     @Autowired
 	private ${Prefix}${Suffix}Repository ${prefix}${Suffix}Repository;
-	
-	private ResponseEntity<Map<String,Object>> responseEntity;
     
     @ApiOperation(value="数据插入", notes="创建${prefix}_${suffix}数据",response = ${Prefix}${Suffix}.class, tags = { "${prefix}.${suffix}",})
     @RequestMapping(value="/save", method=RequestMethod.POST, produces = "application/json; charset=UTF-8", consumes = {"text/plain", "application/json"})

@@ -15,8 +15,16 @@ import org.jerry.light4j.common.utils.PropertiesUtils;
 
 import freemarker.template.Template;
 
+/**
+ * 自定义模版代码生成器
+ * @author jian
+ *
+ */
 public class GenerateCustomManager implements GenerateManagerApi{
 
+	/**
+	 * 根据配置信息dataMap生成代码
+	 */
 	public String codegenMain(Map<String, Object> dataMap) {
 		Properties properties = PropertiesUtils.getProperties("templateConfig.properties");//获取配置信息
 		String templatePath = properties.getProperty("templatePath");

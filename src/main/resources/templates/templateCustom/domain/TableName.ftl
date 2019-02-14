@@ -29,15 +29,13 @@ public class ${TableName}{
 
 <#if model_column?exists>
 <#list model_column as model>
-<#if (model.columnType = 'varchar' || model.columnType = 'text')>
-    public ${model.modelType} get${model.modelName}() {
+    public ${model.modelType!} get${model.modelName}() {
         return this.${model.modelName?uncap_first};
     }
-    public void set${model.modelName}(${model.modelType} ${model.modelName?uncap_first}) {
+    public void set${model.modelName}(${model.modelType!} ${model.modelName?uncap_first}) {
         this.${model.modelName?uncap_first} = ${model.modelName?uncap_first};
     }
 	
-</#if>
 </#list>
 </#if>
 }

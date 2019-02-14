@@ -8,13 +8,10 @@ import org.springframework.stereotype.Repository;
 
 /********************************************
  * 实体操作接口
- * @author janine
- * @since 2017-12-12
+ * @author tools
  *********************************************/
 @Repository
 public interface ${TableName}Repository extends BaseMotifyRepository<${TableName}, Serializable>{
 
 	public ${TableName} findBy${TableName}Code(String ${tableName}Code);
-
-	
 }
