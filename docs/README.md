@@ -1,12 +1,23 @@
-## common-code-generator  [![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php)  [![jerry-code-generator](https://img.shields.io/badge/jerry--code--generator-0.0.1-green.svg)](https://img.shields.io/badge/jerry--code--generator-0.0.1-green.svg)
+## code generation tools  
 
-**通用代码生成器**
+该项目主要用于构建可自定义的代码生成工具，方便企业级项目开发
 
-#### 简介
+## 技术栈
 
+* 编程语言：`java`
+* 模版渲染引擎：`FreeMarker`
 
+## 后续工作
 
+* 优化项目代码
+* 引入图形化界面`javaFX`
 
+## FAQ
+
+* 如何联系我？
+  * 提交项目issue
+  * 邮箱：`janine.jian.chen@gmail.com`
+  * QQ：717266257
 
 
 
