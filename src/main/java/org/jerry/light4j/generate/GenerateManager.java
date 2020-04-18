@@ -1,4 +1,4 @@
-package org.jerry.light4j.business.generate;
+package org.jerry.light4j.generate;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -9,17 +9,31 @@ import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
-import org.jerry.light4j.common.utils.FileUtils;
-import org.jerry.light4j.common.utils.FreeMarkerUtils;
-import org.jerry.light4j.common.utils.PropertiesUtils;
+import org.jerry.light4j.config.ParsingManager;
+import org.jerry.light4j.utils.FileUtils;
+import org.jerry.light4j.utils.FreeMarkerUtils;
+import org.jerry.light4j.utils.PropertiesUtils;
 
 import freemarker.template.Template;
 
-public class GenerateExeclManager implements GenerateManagerApi{
-
-	public String codegenMain(Map<String, Object> dataMap) {
+/**
+ * 代码生成器
+ * @author chenjianrui
+ *
+ */
+public class GenerateManager {
+	
+	public final static String BASE_TEMPLATE_PATH = System.getProperty("user.dir") + "src/main/resources/templates/";
+	public ParsingManager parsingManager;
+	
+	public GenerateManager(ParsingManager parsingManager) {
+		this.parsingManager = parsingManager;
+	}
+	
+	public String codegenMain() {
+		Map<String, Object> dataMap = parsingManager.parsing();
 		Properties properties = PropertiesUtils.getProperties("templateConfig.properties");//获取配置信息
-		String templatePath = properties.getProperty("templatePath");
+		String templatePath = BASE_TEMPLATE_PATH+properties.getProperty("template");
 		String codePath = properties.getProperty("codePath");
 		String result = "";
 		/*1.根据模板路径获取所有模板*/

@@ -1,4 +1,4 @@
-package org.jerry.light4j.common.utils;
+package org.jerry.light4j.utils;
 
 import java.io.File;
 import java.io.IOException;

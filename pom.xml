@@ -4,6 +4,11 @@
   <artifactId>code-generator</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <build/>
+  
+  <properties>
+  	<mysql.version>8.0.19</mysql.version>
+  </properties>
+  
   <dependencies>
 	  <dependency><groupId>org.apache.poi</groupId>  
 		 <artifactId>poi-ooxml</artifactId>  
@@ -14,5 +19,11 @@
 	    <artifactId>freemarker</artifactId>
 	    <version>2.3.23</version>
 	</dependency>	
+	<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+	<dependency>
+	    <groupId>mysql</groupId>
+	    <artifactId>mysql-connector-java</artifactId>
+	    <version>${mysql.version}</version>
+	</dependency>
   </dependencies>
 </project>
