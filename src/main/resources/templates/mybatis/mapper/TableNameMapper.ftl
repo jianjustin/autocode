@@ -32,9 +32,9 @@ public interface ${TableName}Mapper {
     @Insert("INSERT INTO ${table_name}(<#list model_column as model>${model.columnName},</#list>) VALUES(<#list model_column as model>${"#{"+model.modelName+"}"},</#list>)")
     void insert(${TableName} ${TableName?uncap_first});
 
-    @Update("UPDATE ${table_name} SET <#list model_column as model>${model.columnName}=${"#{"+model.modelName+"}"},</#list>)
+    @Update("UPDATE ${table_name} SET <#list model_column as model>${model.columnName}=${"#{"+model.modelName+"}"},</#list>)")
     void update(${TableName} ${TableName?uncap_first});
 
-    @Delete("DELETE FROM ${table_name} WHERE id = ${r'#{id}'}")")
+    @Delete("DELETE FROM ${table_name} WHERE id = ${r'#{id}'}")
     void delete(int id);
 }

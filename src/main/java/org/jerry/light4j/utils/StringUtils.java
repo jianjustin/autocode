@@ -34,28 +34,15 @@ public class StringUtils {
     }
     
     public static String upperFirst(String s) {
-        String str = null;
-        s = s.toLowerCase();
-        if (null != s) {
-            if (s.length() == 1) {
-                str = s.toUpperCase();
-            } else {
-                str = s.substring(0, 1).toUpperCase() + s.substring(1);
-            }
-        }
-        return str;
+    	if(null == s || s.length() == 0)return s;
+    	if (s.length() == 1) return s.toUpperCase();
+        return s.substring(0, 1).toUpperCase() + s.substring(1);
     }
     
     public static String lowerFirst(String s) {
-        String str = null;
-        if (null != s) {
-            if (s.length() == 1) {
-                str = s.toLowerCase();
-            } else {
-                str = s.substring(0, 1).toLowerCase() + s.substring(1);
-            }
-        }
-        return str;
+    	if(null == s || s.length() == 0)return s;
+    	if (s.length() == 1) return s.toLowerCase();
+        return s.substring(0, 1).toLowerCase() + s.substring(1);
     }
     
     public static int countStringNumber(String srcStr,String countStr){
@@ -151,7 +138,7 @@ public class StringUtils {
 			if(isBlank(oldStringArr[i]))continue;
 			newString += upperFirst(oldStringArr[i]);
 		}
-		return newString;
+		return lowerFirst(newString);
 	}
 	
 	/**

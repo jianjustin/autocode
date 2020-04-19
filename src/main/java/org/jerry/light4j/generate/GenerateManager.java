@@ -99,7 +99,7 @@ public class GenerateManager {
 	 */
 	public Map<String, Object> generateDataMap(String table_name){
 		Map<String,Object> map = new HashMap<>();//设置模板参数
-		String modelName = StringUtils.toModelName("_", table_name);
+		String modelName = StringUtils.upperFirst(StringUtils.toModelName("_", table_name));
 		map.put("table_name", table_name);
 		map.put("TableName", modelName);
 		map.put("base_package", properties.getProperty("base_package"));
