@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
-import org.jerry.light4j.ColumnDomain;
+import org.jerry.light4j.domain.ColumnDomain;
 import org.jerry.light4j.utils.PropertiesUtils;
 import org.jerry.light4j.utils.StringUtils;
 
@@ -55,20 +55,21 @@ public class ParsingJdbcManager implements ParsingManager{
 		if (null == tables || tables.size() == 0) return resultMap;
 			
 		try {
-		for (int i = 0; i < tables.size(); i++) {
-			ResultSet rsColimns = connection.getMetaData().getColumns(null, "%", tables.get(i), "%");
-			List<ColumnDomain> list = new ArrayList<>();
-			while(rsColimns.next()) {
-				ColumnDomain item = new ColumnDomain();
-				item.columnName = rsColimns.getString("COLUMN_NAME");
-				item.columnType = rsColimns.getString("TYPE_NAME");
-				item.columnRemark = rsColimns.getString("REMARKS");
-				item.modelName = StringUtils.toModelName("_", item.columnName);
-				item.modelType = ColumnDomain.mysqlTypeToJavaTypeMap.get(StringUtils.toSQLTypeName(item.columnType));
-				list.add(item);
+			resultMap.put(ParsingManager.TABLE_STRING, tables);
+			for (int i = 0; i < tables.size(); i++) {
+				ResultSet rsColimns = connection.getMetaData().getColumns(null, "%", tables.get(i), "%");
+				List<ColumnDomain> list = new ArrayList<>();
+				while(rsColimns.next()) {
+					ColumnDomain item = new ColumnDomain();
+					item.columnName = rsColimns.getString("COLUMN_NAME");
+					item.columnType = rsColimns.getString("TYPE_NAME");
+					item.columnRemark = rsColimns.getString("REMARKS");
+					item.modelName = StringUtils.toModelName("_", item.columnName);
+					item.modelType = ColumnDomain.mysqlTypeToJavaTypeMap.get(StringUtils.toSQLTypeName(item.columnType));
+					list.add(item);
+				}
+				resultMap.put(tables.get(i), list);
 			}
-			resultMap.put(tables.get(i), list);
-		}
 		}catch (Exception e) {
 			e.printStackTrace();
 		}

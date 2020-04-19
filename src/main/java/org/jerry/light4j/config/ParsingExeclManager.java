@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
-import org.jerry.light4j.ColumnDomain;
+import org.jerry.light4j.domain.ColumnDomain;
 import org.jerry.light4j.utils.ExeclUtils;
 import org.jerry.light4j.utils.StringUtils;
 
@@ -28,8 +28,11 @@ public class ParsingExeclManager implements ParsingManager{
 		
 		if(null == sheetList || sheetList.size() == 0)return resultMap;
 		
+		List<String> tables = new ArrayList<>();
+		resultMap.put(ParsingManager.TABLE_STRING, tables);
 		for (Sheet sheet : sheetList) {
 			String tableName = sheet.getSheetName();//获取表名
+			tables.add(tableName);
 			List<Row> rowList = ExeclUtils.getRowList(sheet).stream()
 					.filter((item) -> null!=item && item.getPhysicalNumberOfCells()>0)
 					.collect(Collectors.toList());//去除空行

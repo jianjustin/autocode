@@ -1,4 +1,4 @@
-package org.jerry.light4j;
+package org.jerry.light4j.domain;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -56,4 +56,46 @@ public class ColumnDomain {
 		mysqlTypeToJavaTypeMap.put("MEDIUMBLOB", "byte[]");
 		mysqlTypeToJavaTypeMap.put("LONGBLOB", "byte[]");
 	}
+
+	public String getColumnName() {
+		return columnName;
+	}
+
+	public void setColumnName(String columnName) {
+		this.columnName = columnName;
+	}
+
+	public String getColumnType() {
+		return columnType;
+	}
+
+	public void setColumnType(String columnType) {
+		this.columnType = columnType;
+	}
+
+	public String getColumnRemark() {
+		return columnRemark;
+	}
+
+	public void setColumnRemark(String columnRemark) {
+		this.columnRemark = columnRemark;
+	}
+
+	public String getModelType() {
+		return modelType;
+	}
+
+	public void setModelType(String modelType) {
+		this.modelType = modelType;
+	}
+
+	public String getModelName() {
+		return modelName;
+	}
+
+	public void setModelName(String modelName) {
+		this.modelName = modelName;
+	}
+	
+	
 }

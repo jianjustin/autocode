@@ -7,7 +7,7 @@ import java.util.Map;
  * @author jian
  */
 public interface ParsingManager {
-	
+	public final static String TABLE_STRING = "TABLE_STRING";
 	public final static String basePath = System.getProperty("user.dir");//项目根目录
 	
 	public Map<String, Object> parsing();
