@@ -25,15 +25,15 @@ public class ColumnDomain {
     public static Map<String, String> mysqlTypeToJavaTypeMap = new HashMap<>();
 	
 	static {
-		mysqlTypeToJavaTypeMap.put("BOOL", "Boolean");
-		mysqlTypeToJavaTypeMap.put("BOOLEAN", "Boolean");
-		mysqlTypeToJavaTypeMap.put("SMALLINT", "Integer");
-		mysqlTypeToJavaTypeMap.put("MEDIUMINT", "Integer");
-		mysqlTypeToJavaTypeMap.put("INT", "Integer");
+		mysqlTypeToJavaTypeMap.put("BOOL", "boolean");
+		mysqlTypeToJavaTypeMap.put("BOOLEAN", "boolean");
+		mysqlTypeToJavaTypeMap.put("SMALLINT", "int");
+		mysqlTypeToJavaTypeMap.put("MEDIUMINT", "int");
+		mysqlTypeToJavaTypeMap.put("INT", "int");
 		mysqlTypeToJavaTypeMap.put("INTEGER", "Integer");
-		mysqlTypeToJavaTypeMap.put("BIGINT", "Long");
-		mysqlTypeToJavaTypeMap.put("FLOAT", "Float");
-		mysqlTypeToJavaTypeMap.put("DOUBLE", "Double");
+		mysqlTypeToJavaTypeMap.put("BIGINT", "BigDecimal");
+		mysqlTypeToJavaTypeMap.put("FLOAT", "float");
+		mysqlTypeToJavaTypeMap.put("DOUBLE", "double");
 		mysqlTypeToJavaTypeMap.put("DECIMAL", "BigDecimal");
 		mysqlTypeToJavaTypeMap.put("DATE", "Date");
 		mysqlTypeToJavaTypeMap.put("DATETIME", "Date");

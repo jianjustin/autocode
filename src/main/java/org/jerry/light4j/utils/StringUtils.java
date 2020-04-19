@@ -148,12 +148,8 @@ public class StringUtils {
 		String[] oldStringArr = oldString.split(regex);
 		String newString = "";
 		for (int i=0 ; i<oldStringArr.length ; i++) {
-			if(isBlank(oldStringArr[i]))
-				continue;
-			if(i == 0)
-				newString = oldStringArr[i].toLowerCase();
-			else
-				newString += upperFirst(oldStringArr[i]);
+			if(isBlank(oldStringArr[i]))continue;
+			newString += upperFirst(oldStringArr[i]);
 		}
 		return newString;
 	}

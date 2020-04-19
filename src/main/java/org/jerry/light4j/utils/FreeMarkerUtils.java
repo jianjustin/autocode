@@ -37,6 +37,7 @@ public class FreeMarkerUtils {
             	CONFIGURATION.setDirectoryForTemplateLoading(new File(templatePath));
             	template = CONFIGURATION.getTemplate(templateName);
 			} catch (IOException e) {
+				e.printStackTrace();
 				return template;
 			}
             return template;

@@ -6,6 +6,9 @@ import java.io.FileOutputStream;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -61,17 +64,13 @@ public class GenerateManager {
 		List<String> tables = (List<String>) dataMap.get(ParsingManager.TABLE_STRING);
 		
 		for (int i = 0; i < tables.size(); i++) {
-			Map<String,Object> map = new HashMap<>();//设置模板参数
-			String modelName = StringUtils.toModelName("_", tables.get(i));
-			map.put("table_name", tables.get(i));
-			map.put("TableName", modelName);
-			map.put("base_package", properties.getProperty("base_package"));
+			Map<String,Object> map = generateDataMap(tables.get(i));//设置模板参数
 			map.put("model_column", dataMap.get(tables.get(i)));
 			for (String path : templateManager.paths) {
 				Template template = templateManager.templates.get(path);
 				
 				String templateName = template.getName();
-				String fileName = templateName.replaceAll("TableName", modelName).replaceAll("ftl", "java");
+				String fileName = templateName.replaceAll("TableName", map.get("TableName").toString()).replaceAll("ftl", "java");
 				String filePath = path.replaceAll(templateName, "").replaceAll(templateManager.getTemplatePath(), codePath);
 				
 				
@@ -91,5 +90,25 @@ public class GenerateManager {
 			}
 		}
 		logger.info("==============开始代码生成 End=================="); 
+	}
+	
+	/**
+	 * 生成参数表
+	 * @param table_name
+	 * @return
+	 */
+	public Map<String, Object> generateDataMap(String table_name){
+		Map<String,Object> map = new HashMap<>();//设置模板参数
+		String modelName = StringUtils.toModelName("_", table_name);
+		map.put("table_name", table_name);
+		map.put("TableName", modelName);
+		map.put("base_package", properties.getProperty("base_package"));
+		
+		/*根据表名获取系统模块列表*/
+		String[] strs = table_name.split("_");
+		List<String> list = new ArrayList<>();
+		for (int i = 0; i < strs.length; i++) list.add(strs[i].toLowerCase());
+		map.put("module_list", list);
+		return map;
 	}
 }
