@@ -1,4 +1,4 @@
-[![code-generate-tools](https://img.shields.io/badge/project-code--generate--tools-yellowgreen)](https://github.com/jianjustin/code-generate-tools)[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) 
+[![code-generate-tools](https://img.shields.io/badge/project-code--generate--tools-yellowgreen)](https://github.com/jianjustin/code-generate-tools) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) 
 
 本项目是基于模板引擎FreeMarker实现的代码生成工具，主要用于简化平时的编码工作。
 
