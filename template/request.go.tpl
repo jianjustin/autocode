@@ -1,0 +1,3 @@
+type GetSubscriptionList struct {
+	PageInfo
+}
