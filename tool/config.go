@@ -7,6 +7,10 @@ import (
 	"strings"
 )
 
+var (
+	CONF = BuildConfig()
+)
+
 func BuildConfig() model.AppConfig {
 	c := GetAppConfig()
 

@@ -1,6 +1,8 @@
 package model
 
-import "os"
+import (
+	"os"
+)
 
 var (
 	GLOBAL_PATH, _ = os.Getwd()
