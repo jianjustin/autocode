@@ -1,3 +1,3 @@
-type GetSubscriptionList struct {
+type {{.Request}} struct {
 	PageInfo
 }

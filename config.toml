@@ -1,13 +1,51 @@
-service = "product"
-model = "UpdfPayProducts"
+service = "good"
+model = "UpdfPayGoods"
 package = "goods"
-serviceName = "产品"
+serviceName = "商品"
+ApiGroup = ""
+ApiFunc = ""
+ApiMethod = "post"
+PageName = "good"
 
+[SearchField] #搜索字段
+    [SearchField.GoodId]
+    label = "商品ID"
+    model = "goodId"
+    type = "input"
 
+    [SearchField.GoodName]
+    label = "商品名称"
+    model = "goodName"
+    type = "input"
 
+[TableField] #列表显示字段
+    [TableField.GoodsName]
+    label = "名称"
+    width = 200
+    prop = "goodsName"
 
+    [TableField.GoodsName]
+    label = "描述"
+    width = 110
+    prop = "goodsDesc"
 
+    [GoodsName]
+    label = "平台类型"
+    width = 80
+    prop = "platform"
 
+    [GoodsName]
+    label = "上架状态"
+    width = 100
+    prop = "isOnline"
 
-
-
+[TableButton]
+    [Add]
+    func = "addGood"
+    label = "新增"
+    [Edit]
+    func = "editGood"
+    label = "编辑"
+    [Delete]
+    func = "delGood"
+    label = "删除"
