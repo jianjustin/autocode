@@ -1,7 +1,7 @@
 export const  = (data) => {
     return service({
         url: '/updf//',
-        method: ,
+        method: post,
         data: data
     })
 }

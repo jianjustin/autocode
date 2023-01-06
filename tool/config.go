@@ -16,6 +16,7 @@ func BuildConfig() model.AppConfig {
 
 	c.Service1 = strings.Title(c.Service)
 	c.Package1 = strings.Title(c.Package)
+	c.PageName1 = strings.Title(c.PageName)
 	c.Request = strings.ReplaceAll("GetServiceList", "Service", strings.Title(c.Service))
 	c.Where = strings.ReplaceAll("ServiceWhere", "Service", c.Service)
 

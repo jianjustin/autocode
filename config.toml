@@ -7,45 +7,84 @@ ApiFunc = ""
 ApiMethod = "post"
 PageName = "good"
 
-[SearchField] #搜索字段
-    [SearchField.GoodId]
-    label = "商品ID"
-    model = "goodId"
-    type = "input"
+# 基础函数名称
+AddFunc = "openDialog('add')"
+EditFunc = "editGoodFunc(scope.row)"
+DelFunc = "deleteGoodFunc(scope.row)"
 
-    [SearchField.GoodName]
-    label = "商品名称"
-    model = "goodName"
-    type = "input"
+[[SearchField]] #搜索字段
+label = "商品ID"
+model = "goodId"
+type = "input"
 
-[TableField] #列表显示字段
-    [TableField.GoodsName]
-    label = "名称"
-    width = 200
-    prop = "goodsName"
+[[SearchField]]
+label = "商品名称"
+model = "goodName"
+type = "input"
 
-    [TableField.GoodsName]
-    label = "描述"
-    width = 110
-    prop = "goodsDesc"
+[[TableField]]
+label = "名称"
+width = 200
+prop = "goodsName"
 
-    [GoodsName]
-    label = "平台类型"
-    width = 80
-    prop = "platform"
+[[TableField]]
+label = "描述"
+width = 110
+prop = "goodsDesc"
 
-    [GoodsName]
-    label = "上架状态"
-    width = 100
-    prop = "isOnline"
+[[TableField]]
+label = "平台类型"
+width = 80
+prop = "platform"
 
-[TableButton]
-    [Add]
-    func = "addGood"
-    label = "新增"
-    [Edit]
-    func = "editGood"
-    label = "编辑"
-    [Delete]
-    func = "delGood"
-    label = "删除"
+[[TableField]]
+label = "上架状态"
+width = 100
+prop = "isOnline"
+
+[[FormField]]
+label = "商品名称"
+prop = "goodsName"
+
+[[FormField]] #直接默认是0即可
+label = "权益类型"
+prop = "proId"
+
+[[FormField]]
+label = "订阅类型"
+prop = "subscriptionId"
+
+[[FormField]]
+label = "产品类型"
+prop = "productId"
+
+[[FormField]]
+label = "产品版本"
+prop = "ver"
+
+[[FormField]]
+label = "币种"
+prop = "currencySymbol"
+
+[[FormField]]
+label = "原价"
+prop = "orgPrice"
+
+[[FormField]]
+label = "售价"
+prop = "goodsPrice"
+
+#[[FormField]]
+#label = "促销信息"
+#prop = ""
+
+[[FormField]]
+label = "是否推荐"
+prop = "is_recommend"
+
+[[FormField]]
+label = "上线状态"
+prop = "isOnline"
+
+[[Apis]]
+api = "getGoodList"

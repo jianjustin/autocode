@@ -3,18 +3,18 @@ package updf
 import (
 	"admin/global"
 	"admin/model/common/request"
-	"admin/model/updf/"
+	"admin/model/updf/goods"
 	"admin/utils"
 	"gorm.io/gorm"
 )
 
-type UpdfService struct{}
+type UpdfGoodService struct{}
 
-// GetCount 获取数量
-func (exa *UpdfService) GetCount(args request.GetList) (err error, total int64) {
-	db := global.GVA_DBList[global.UPDF].Model(&.{})
+// GetGoodCount 获取商品数量
+func (exa *UpdfGoodService) GetGoodCount(args request.GetGoodList) (err error, total int64) {
+	db := global.GVA_DBList[global.UPDF].Model(&goods.UpdfPayGoods{})
 
-	exa.Where(args, db)
+	exa.goodWhere(args, db)
 
 	err = db.Debug().Count(&total).Error
 	if err != nil {
@@ -24,50 +24,50 @@ func (exa *UpdfService) GetCount(args request.GetList) (err error, total int64) 
 	return err, total
 }
 
-// GetList 分页获取列表
-func (exa *UpdfService) GetList(args request.GetList) (err error, list *[].) {
+// GetGoodList 分页获取商品列表
+func (exa *UpdfGoodService) GetGoodList(args request.GetGoodList) (err error, list *[]goods.UpdfPayGoods) {
 	limit := args.PageSize
 	offset := args.PageSize * (args.Page - 1)
-	db := global.GVA_DBList[global.UPDF].Model(&.{})
+	db := global.GVA_DBList[global.UPDF].Model(&goods.UpdfPayGoods{})
 
-	exa.Where(args, db)
+	exa.goodWhere(args, db)
 
-	var listDb [].
+	var listDb []goods.UpdfPayGoods
 	err = db.Debug().Limit(limit).Offset(offset).Find(&listDb).Error
 
 	return err, &listDb
 }
 
-// GetAllList 获取所有列表
-func (exa *UpdfService) GetAllList(args request.GetList) (err error, list *[].) {
-	db := global.GVA_DBList[global.UPDF].Model(&.{})
+// GetAllGoodList 获取所有商品列表
+func (exa *UpdfGoodService) GetAllGoodList(args request.GetGoodList) (err error, list *[]goods.UpdfPayGoods) {
+	db := global.GVA_DBList[global.UPDF].Model(&goods.UpdfPayGoods{})
 
-	exa.Where(args, db)
+	exa.goodWhere(args, db)
 
-	var listDb [].
+	var listDb []goods.UpdfPayGoods
 	err = db.Debug().Find(&listDb).Error
 
 	return err, &listDb
 }
 
-// GetCountAndList 获取数量及分页信息
-func (exa *UpdfService) GetCountAndList(args request.GetList) (err error, list *[]., total int64) {
+// GetGoodCountAndList 获取商品数量及分页信息
+func (exa *UpdfGoodService) GetGoodCountAndList(args request.GetGoodList) (err error, list *[]goods.UpdfPayGoods, total int64) {
 	limit := args.PageSize
 	offset := args.PageSize * (args.Page - 1)
-	db := global.GVA_DBList["updf"].Model(&.{})
+	db := global.GVA_DBList["updf"].Model(&goods.UpdfPayGoods{})
 
-	exa.Where(args, db)
+	exa.goodWhere(args, db)
 	err = db.Count(&total).Error
 	if err != nil {
 		return err, list, total
 	}
 
-	var listDb [].
+	var listDb []goods.UpdfPayGoods
 	err = db.Debug().Limit(limit).Offset(offset).Find(&listDb).Error
 
 	return err, &listDb, total
 }
 
-func (exa *UpdfService) Where(args request.GetList, db *gorm.DB) {
+func (exa *UpdfGoodService) goodWhere(args request.GetGoodList, db *gorm.DB) {
 	utils.IsExist(db)
 }

@@ -15,8 +15,15 @@ type AppConfig struct {
 	ApiFunc   string
 	ApiMethod string
 
-	PageName string
+	AddFunc  string
+	EditFunc string
+	DelFunc  string
+
+	PageName  string
+	PageName1 string
 
 	SearchField []interface{}
 	TableField  []interface{}
+	FormField   []interface{}
+	Apis        []interface{}
 }

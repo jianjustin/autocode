@@ -1,0 +1,3 @@
+type GetGoodList struct {
+	PageInfo
+}
