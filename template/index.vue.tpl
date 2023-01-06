@@ -61,7 +61,7 @@
             <el-form ref="{{.Service}}Form" :rules="rules" :model="{{.Service}}Info" label-width="80px">
               {{- range $i,$v := .FormField}}
               <el-form-item label="{{$v.label}}" prop="{{$v.prop}}">
-                <el-input v-model="{{$.Service}}Info.{{$v.prop}}" />
+                <el-input v-model="form.{{$v.prop}}" />
               </el-form-item>
               {{- end}}
             </el-form>
@@ -100,6 +100,11 @@ const total = ref(0)
 const pageSize = ref(10)
 const tableData = ref([])
 const searchInfo = ref({})
+const form = ref({
+  {{- range $i,$v := .FormField}}
+  {{$v.prop}}: '',
+  {{- end}}
+})
 
   const onReset = () => {
     searchInfo.value = {};
@@ -135,12 +140,23 @@ const searchInfo = ref({})
     }
   }
 
-  const initPage = async() => {
-    onReset();
-    getTableData();
-  }
+const initPage = async() => {
+  onReset();
+  getTableData();
+}
 
-  initPage()
+initPage()
+
+// 弹窗相关
+const {{.Service}}Form = ref(null)
+const initForm = () => {
+  {{.Service}}Form.value.resetFields()
+  form.value = {
+      {{- range $i,$v := .FormField}}
+      {{$v.prop}}: '',
+      {{- end}}
+  }
+}
 
 const dialogTitle = ref('新增')
 const dialogFormVisible = ref(false)
